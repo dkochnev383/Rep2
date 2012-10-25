@@ -10,6 +10,11 @@
 		B80FB6D2161CEF4F00F5C35B /* ViewControlleraccountDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = B80FB6D1161CEF4F00F5C35B /* ViewControlleraccountDetails.m */; };
 		B80FB6D5161CF70600F5C35B /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = B80FB6D4161CF70600F5C35B /* Customer.m */; };
 		B80FB6E0161D327600F5C35B /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = B80FB6DF161D327600F5C35B /* Address.m */; };
+		B890544C162F97CA0000E2A4 /* ViewControllerAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = B890544B162F97CA0000E2A4 /* ViewControllerAddress.m */; };
+		B890544F162FBFD50000E2A4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B890544E162FBFD40000E2A4 /* MapKit.framework */; };
+		B8ACC82B1633990A0075014B /* TabelCellAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ACC82A1633990A0075014B /* TabelCellAddressView.m */; };
+		B8ACC830163399D70075014B /* TableCellAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8ACC82F163399D70075014B /* TableCellAddressView.xib */; };
+		B8ACC83216342F9A0075014B /* Description.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B8ACC83116342F9A0075014B /* Description.rtf */; };
 		B8C134FB161C76A500280732 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C134FA161C76A500280732 /* UIKit.framework */; };
 		B8C134FD161C76A500280732 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C134FC161C76A500280732 /* Foundation.framework */; };
 		B8C134FF161C76A500280732 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C134FE161C76A500280732 /* CoreGraphics.framework */; };
@@ -21,6 +26,7 @@
 		B8C13511161C76A500280732 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8C13510161C76A500280732 /* Default-568h@2x.png */; };
 		B8C13514161C76A500280732 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C13512161C76A500280732 /* MainStoryboard.storyboard */; };
 		B8C13517161C76A500280732 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C13516161C76A500280732 /* ViewController.m */; };
+		B8CF39C21630E1A20076042A /* frame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8CF39C11630E1A20076042A /* frame.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,13 @@
 		B80FB6D4161CF70600F5C35B /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
 		B80FB6DE161D327600F5C35B /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
 		B80FB6DF161D327600F5C35B /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		B890544A162F97CA0000E2A4 /* ViewControllerAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerAddress.h; sourceTree = "<group>"; };
+		B890544B162F97CA0000E2A4 /* ViewControllerAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerAddress.m; sourceTree = "<group>"; };
+		B890544E162FBFD40000E2A4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B8ACC8291633990A0075014B /* TabelCellAddressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabelCellAddressView.h; path = ../TabelCellAddressView.h; sourceTree = "<group>"; };
+		B8ACC82A1633990A0075014B /* TabelCellAddressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabelCellAddressView.m; path = ../TabelCellAddressView.m; sourceTree = "<group>"; };
+		B8ACC82F163399D70075014B /* TableCellAddressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableCellAddressView.xib; path = ../TableCellAddressView.xib; sourceTree = "<group>"; };
+		B8ACC83116342F9A0075014B /* Description.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Description.rtf; sourceTree = "<group>"; };
 		B8C134F6161C76A500280732 /* Test App2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test App2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C134FA161C76A500280732 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B8C134FC161C76A500280732 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,6 +59,7 @@
 		B8C13513161C76A500280732 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		B8C13515161C76A500280732 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B8C13516161C76A500280732 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B8CF39C11630E1A20076042A /* frame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = frame.jpg; path = ../../../frame.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B890544F162FBFD50000E2A4 /* MapKit.framework in Frameworks */,
 				B8C134FB161C76A500280732 /* UIKit.framework in Frameworks */,
 				B8C134FD161C76A500280732 /* Foundation.framework in Frameworks */,
 				B8C134FF161C76A500280732 /* CoreGraphics.framework in Frameworks */,
@@ -65,6 +80,9 @@
 		B8C134EB161C76A500280732 = {
 			isa = PBXGroup;
 			children = (
+				B8ACC83116342F9A0075014B /* Description.rtf */,
+				B8CF39C11630E1A20076042A /* frame.jpg */,
+				B890544E162FBFD40000E2A4 /* MapKit.framework */,
 				B8C13500161C76A500280732 /* Test App2 */,
 				B8C134F9161C76A500280732 /* Frameworks */,
 				B8C134F7161C76A500280732 /* Products */,
@@ -92,6 +110,9 @@
 		B8C13500161C76A500280732 /* Test App2 */ = {
 			isa = PBXGroup;
 			children = (
+				B8ACC82F163399D70075014B /* TableCellAddressView.xib */,
+				B8ACC8291633990A0075014B /* TabelCellAddressView.h */,
+				B8ACC82A1633990A0075014B /* TabelCellAddressView.m */,
 				B80FB6D0161CEF4F00F5C35B /* ViewControlleraccountDetails.h */,
 				B80FB6D1161CEF4F00F5C35B /* ViewControlleraccountDetails.m */,
 				B8C13509161C76A500280732 /* AppDelegate.h */,
@@ -104,6 +125,8 @@
 				B80FB6D4161CF70600F5C35B /* Customer.m */,
 				B80FB6DE161D327600F5C35B /* Address.h */,
 				B80FB6DF161D327600F5C35B /* Address.m */,
+				B890544A162F97CA0000E2A4 /* ViewControllerAddress.h */,
+				B890544B162F97CA0000E2A4 /* ViewControllerAddress.m */,
 			);
 			path = "Test App2";
 			sourceTree = "<group>";
@@ -178,6 +201,9 @@
 				B8C1350F161C76A500280732 /* Default@2x.png in Resources */,
 				B8C13511161C76A500280732 /* Default-568h@2x.png in Resources */,
 				B8C13514161C76A500280732 /* MainStoryboard.storyboard in Resources */,
+				B8CF39C21630E1A20076042A /* frame.jpg in Resources */,
+				B8ACC830163399D70075014B /* TableCellAddressView.xib in Resources */,
+				B8ACC83216342F9A0075014B /* Description.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +220,8 @@
 				B80FB6D2161CEF4F00F5C35B /* ViewControlleraccountDetails.m in Sources */,
 				B80FB6D5161CF70600F5C35B /* Customer.m in Sources */,
 				B80FB6E0161D327600F5C35B /* Address.m in Sources */,
+				B890544C162F97CA0000E2A4 /* ViewControllerAddress.m in Sources */,
+				B8ACC82B1633990A0075014B /* TabelCellAddressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

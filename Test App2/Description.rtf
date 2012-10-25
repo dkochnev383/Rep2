@@ -1,0 +1,187 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Consolas;
+}
+{\colortbl;\red255\green255\blue255;\red92\green38\blue153;\red0\green116\blue0;\red170\green13\blue145;
+\red196\green26\blue22;\red46\green13\blue110;\red63\green110\blue116;\red38\green71\blue75;\red28\green0\blue207;
+\red234\green234\blue234;\red0\green0\blue120;\red37\green127\blue159;\red107\green0\blue3;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 solution has 3 options to use tablecell:\
+\
+1) use standard tablecell style\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f1\fs22 \cf0 \CocoaLigature0 - (\cf2 UITableViewCell\cf0  *)tableView:(\cf2 UITableView\cf0  *)tableView cellForRowAtIndexPath:(\cf2 NSIndexPath\cf0  *)indexPath\
+
+\f0\fs24 \CocoaLigature1 ...\
+
+\f1\fs22 \CocoaLigature0     \cf3 //Method 1 - use storyboard + standard prototype - subtitle\cf0 \
+    \cf4 static\cf0  \cf2 NSString\cf0  *cellIdentifier = \cf5 @"Cell1"\cf0 ;\
+    \cf2 UITableViewCell\cf0  *tableCell = (\cf2 UITableViewCell\cf0  *) [tableView \cf6 dequeueReusableCellWithIdentifier\cf0 :cellIdentifier];\
+    \cf4 if\cf0  (tableCell == \cf4 nil\cf0 )\
+    \{\
+        tableCell = [[\cf2 UITableViewCell\cf0  \cf6 alloc\cf0 ] \cf6 initWithStyle\cf0 :\cf6 UITableViewCellStyleSubtitle\cf0  \cf6 reuseIdentifier\cf0 :cellIdentifier];\
+        \cf3 //tableCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];\cf0 \
+        \
+    \}\
+    tableCell.\cf2 accessoryType\cf0  = \cf6 UITableViewCellAccessoryDisclosureIndicator\cf0 ;\
+    tableCell.\cf2 textLabel\cf0 .\cf2 text\cf0  = [[\cf7 customer\cf0 .\cf7 Addresses\cf0  \cf6 objectAtIndex\cf0 :indexPath.\cf2 row\cf0 ] \cf8 AddressLine\cf0 ];\
+    tableCell.\cf2 detailTextLabel\cf0 .\cf2 text\cf0  =[[\cf7 customer\cf0 .\cf7 Addresses\cf0  \cf6 objectAtIndex\cf0 :indexPath.\cf2 row\cf0 ] \cf8 PostalCode\cf0 ];\
+    \cf4 return\cf0   tableCell;\
+
+\f0\fs24 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+2) use nib file and load it in \
+\pard\tx529\pardeftab529\pardirnatural
+
+\f1\fs22 \cf0 \CocoaLigature0 - (\cf2 UITableViewCell\cf0  *)tableView:(\cf2 UITableView\cf0  *)tableView cellForRowAtIndexPath:(\cf2 NSIndexPath\cf0  *)indexPath\
+
+\f0\fs24 \CocoaLigature1 ...\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\pard\tx529\pardeftab529\pardirnatural
+
+\f1\fs22 \cf0 \CocoaLigature0  \cf3 //Method 2 - load from nib file\cf0 \
+    \cf3 //in my case nib name is the same as identifier in cell\cf0 \
+    \cf4 static\cf0  \cf2 NSString\cf0  *cellIdentifier2 = \cf5 @"TableCellAddressView"\cf0 ;\
+    \cf7 TabelCellAddressView\cf0  *tableCell2 = (\cf7 TabelCellAddressView\cf0  *) [tableView \cf6 dequeueReusableCellWithIdentifier\cf0 :cellIdentifier2];\
+    \cf4 if\cf0  (tableCell2 == \cf4 nil\cf0 )\
+    \{\
+        \cf2 NSArray\cf0  *topLevelObjects = [[\cf2 NSBundle\cf0  \cf6 mainBundle\cf0 ] \cf6 loadNibNamed\cf0 :cellIdentifier2 \cf6 owner\cf0 :\cf4 self\cf0  \cf6 options\cf0 :\cf4 nil\cf0 ];\
+        \cf4 id\cf0  firstObject = [topLevelObjects \cf6 objectAtIndex\cf0 :\cf9 0\cf0 ];\
+        \cf4 if\cf0  ( [ firstObject \cf6 isKindOfClass\cf0 :[\cf2 UITableViewCell\cf0  \cf6 class\cf0 ]] )\
+            tableCell2 = firstObject;\
+        \cf4 else\cf0  tableCell2 = [topLevelObjects \cf6 objectAtIndex\cf0 :\cf9 1\cf0 ];\
+        \
+    \}\
+    [tableCell2.\cf7 lblTitle\cf0  \cf6 setText\cf0 :\cf5 @"ttttt"\cf0 ];\
+    \cf4 return\cf0  tableCell2;\
+    [tableCell2.\cf7 lblTitle\cf0  \cf6 setText\cf0 :\cf5 @"ttttt"\cf0 ];\
+    \cf4 return\cf0  tableCell2;\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+3) in IOS 5 there is method to load nib on uitableview\
+in controller\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f1\fs22 \cf0 \CocoaLigature0 - (\cf4 void\cf0 )viewDidLoad\
+\{
+\f0\fs24 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 .....\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f1\fs22 \cf0 \CocoaLigature0     \cf3 //register NIB with custom cell design\cf0 \
+    \cf2 UINib\cf0  *countryNib = [\cf2 UINib\cf0  \cf6 nibWithNibName\cf0 :\cf5 @"TableCellAddressView"\cf0  \cf6 bundle\cf0 :\cf4 nil\cf0 ];\
+    [\cf4 self\cf0 .\cf7 tableView\cf0  \cf6 registerNib\cf0 :countryNib\
+         \cf6 forCellReuseIdentifier\cf0 :\cf5 @"TableCellAddressView"\cf0 ];\
+
+\f0\fs24 \CocoaLigature1 \
+the change from previous step will be\
+
+\f1\fs22 \CocoaLigature0 - (\cf2 UITableViewCell\cf0  *)tableView:(\cf2 UITableView\cf0  *)tableView cellForRowAtIndexPath:(\cf2 NSIndexPath\cf0  *)indexPath\
+
+\f0\fs24 \CocoaLigature1 ...\
+
+\f1\fs22 \CocoaLigature0     \cf3 //Method 3 - load from nib file via tbleview registerNib:@""...\cf0 \
+    \cf4 static\cf0  \cf2 NSString\cf0  *cellIdentifier2 = \cf5 @"TableCellAddressView"\cf0 ;\
+    \cf7 TabelCellAddressView\cf0  *tableCell2 = (\cf7 TabelCellAddressView\cf0  *) [tableView \cf6 dequeueReusableCellWithIdentifier\cf0 :cellIdentifier2];\
+    [tableCell2.\cf7 lblTitle\cf0  \cf6 setText\cf0 :\cf5 @"ttttt"\cf0 ];\
+    \cf4 return\cf0  tableCell2;
+\f0\fs24 \CocoaLigature1 \
+\
+4) extension of method 1 - change cell style to custom, add label. even assign the same class as we used in 2 & 3\
+\
+
+\f1\fs22 \CocoaLigature0 - (\cf2 UITableViewCell\cf0  *)tableView:(\cf2 UITableView\cf0  *)tableView cellForRowAtIndexPath:(\cf2 NSIndexPath\cf0  *)indexPath\
+
+\f0\fs24 \CocoaLigature1 ...\
+
+\f1\fs22 \CocoaLigature0     \cf3 //Method 4 - use storyboard + custom prototype\cf0 \
+    \cf4 static\cf0  \cf2 NSString\cf0  *cellIdentifier = \cf5 @"Cell1"\cf0 ;\
+    \cf2 UITableViewCell\cf0  *tableCell = (\cf2 UITableViewCell\cf0  *) [tableView \cf6 dequeueReusableCellWithIdentifier\cf0 :cellIdentifier];\
+    tableCell.\cf2 accessoryType\cf0  = \cf6 UITableViewCellAccessoryDisclosureIndicator\cf0 ;\
+    \cf3 //tableCell.textLabel.text = [[customer.Addresses objectAtIndex:indexPath.row] AddressLine];\cf0 \
+    \cf3 //tableCell.detailTextLabel.text =[[customer.Addresses objectAtIndex:indexPath.row] PostalCode];\cf0 \
+    \cf4 return\cf0   tableCell;\
+\
+5) tablecell is located in another view with id "CellFromAnotherView" - load view from storyboard with name "CellFromAnotherView" and get reusableidentifier from tableview\
+\
+\
+- (\cf2 UITableViewCell\cf0  *)tableView:(\cf2 UITableView\cf0  *)tableView cellForRowAtIndexPath:(\cf2 NSIndexPath\cf0  *)indexPath\
+
+\f0\fs24 \CocoaLigature1 ...\
+
+\f1\fs22 \CocoaLigature0     \cf3 //Method 5 - use storyboard + custom prototype in another view\cf0 \
+    \cf4 static\cf0  \cf2 NSString\cf0  *cellIdentifier = \cf5 @"\cf0 CellFromAnotherView\cf5 "\cf0 ;\
+    \cf2 UITableViewCell\cf0  *tableCell = (\cf2 UITableViewCell\cf0  *) [tableView \cf6 dequeueReusableCellWithIdentifier\cf0 :cellIdentifier];\
+    tableCell.\cf2 accessoryType\cf0  = \cf6 UITableViewCellAccessoryDisclosureIndicator\cf0 ;\
+    \cf3 //tableCell.textLabel.text = [[customer.Addresses objectAtIndex:indexPath.row] AddressLine];\cf0 \
+    \cf3 //tableCell.detailTextLabel.text =[[customer.Addresses objectAtIndex:indexPath.row] PostalCode];\cf0 \
+    \cf4 return\cf0   tableCell;\
+\
+\
+\
+open view on row select without sequeue\
+http://stackoverflow.com/questions/9195369/tableview-across-to-another-tableview-and-custom-table-cell-cannot-be-shown\
+\
+\pard\pardeftab720
+
+\f2\fs28 \cf0 \cb10 \CocoaLigature1 -(\cf11 void\cf0 )tableView:(\cf12 UITableView\cf0  *)tableView didSelectRowAtIndexPath:(\cf12 NSIndexPath\cf0  *)indexPath\
+\{\
+\'a0 \'a0 \cf12 FavoritesController\cf0  * favoriteview = [[\cf12 FavoritesController\cf0  alloc] init];\
+\'a0 \'a0 [favoriteview setTitle:@\cf13 "Favorites"\cf0 ];\
+\
+\'a0 \'a0 \cf12 NSMutableArray\cf0  * profiles = [[\cf12 NSMutableArray\cf0  alloc]init ];\
+\'a0 \'a0 profiles = [\cf12 NSMutableArray\cf0  arrayWithCapacity:\cf13 20\cf0 ];\
+\
+\'a0 \'a0 \cf12 Profiles\cf0  * profile = [[\cf12 Profiles\cf0  alloc]init];\
+\'a0 \'a0 profile.profile_name = @\cf13 "Woot"\cf0 ;\
+\'a0 \'a0 profile.biz_type_desc = @\cf13 "Woot 1"\cf0 ;\
+\'a0 \'a0 profile.profile_address = @\cf13 "123, woot"\cf0 ;\
+\'a0 \'a0 profile.profile_email = @\cf13 "woot@woot.com"\cf0 ;\
+\'a0 \'a0 [profiles addObject:profile];\
+\'a0 \'a0 profile=[[\cf12 Profiles\cf0  alloc]init];\
+\'a0 \'a0 profile.profile_name = @\cf13 "Jin-Aurora"\cf0 ;\
+\'a0 \'a0 profile.biz_type_desc = @\cf13 "Software"\cf0 ;\
+\'a0 \'a0 profile.profile_address = @\cf13 "682A"\cf0 ;\
+\'a0 \'a0 profile.profile_email = @\cf13 "jin@jin.biz"\cf0 ;\
+\'a0 \'a0 [profiles addObject:profile];\
+\
+\'a0 \'a0 [\cf11 self\cf0 .navigationController pushViewController:favoriteview animated:YES];\
+\'a0 \'a0 favoriteview.profilelist = profiles; \
+\}\
+
+\f1\fs22 \cb1 \CocoaLigature0 \
+\
+\
+http://useyourloaf.com/blog/2012/06/07/prototype-table-cells-and-storyboards.html\
+http://stackoverflow.com/questions/413993/loading-a-reusable-uitableviewcell-from-a-nib\
+http://www.mindfiresolutions.com/Automatic-Cell-Loading-UITableView-iOs-50--1456.php\
+http://www.idev101.com/code/User_Interface/UITableView/customizing.html\
+header/footer\
+http://stackoverflow.com/questions/9245969/in-a-storyboard-how-to-make-a-custom-cell-for-use-with-multiple-controllers\
+http://stackoverflow.com/questions/9334156/how-to-initialize-a-custom-prototype-style-table-cell-in-ios-5-storyboards\
+http://www.techotopia.com/index.php/Using_Xcode_Storyboards_to_Build_Dynamic_TableViews_with_Prototype_Table_View_Cells\
+\
+\
+
+\f2\fs28 \cb10 \CocoaLigature1 - (\cf12 UITableViewCell\cf0  *)tableView:(\cf12 UITableView\cf0  *)tableView cellForRowAtIndexPath:(\cf12 NSIndexPath\cf0  *)indexPath\
+\{ \'a0 \
+\'a0 \'a0 \cf12 UITableViewCell\cf0  *cell = (\cf12 UITableViewCell\cf0  *)[tableView dequeueReusableCellWithIdentifier:@\cf13 "CustomCellId"\cf0 ];\
+\
+\'a0 \'a0 \cf11 if\cf0  (cell == nil) \
+\'a0 \'a0 \{\
+\'a0 \'a0 \'a0 \'a0 \cf12 UIViewController\cf0  *c = [[\cf12 UIViewController\cf0  alloc] initWithNibName:@\cf13 "CustomCell"\cf0  bundle:nil];\
+\'a0 \'a0 \'a0 \'a0 cell = (\cf12 PostCell\cf0  *)c.view;\
+\'a0 \'a0 \'a0 \'a0 [c release];\
+\'a0 \'a0 \}\
+\
+\'a0 \'a0 \cf11 return\cf0  cell;\
+\}\
+
+\f1\fs22 \cb1 \CocoaLigature0 \
+}
